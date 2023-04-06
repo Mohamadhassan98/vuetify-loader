@@ -17,7 +17,7 @@ export function importPlugin (): Plugin {
     name: 'vuetify:import',
     configResolved (config) {
       if (config.plugins.findIndex(plugin => plugin.name === 'vuetify:import') < config.plugins.findIndex(plugin => plugin.name === 'vite:vue')) {
-        throw new Error('Vuetify plugin must be loaded after the vue plugin')
+        console.warn('Vuetify plugin must be loaded after the vue plugin');
       }
     },
     async transform (code, id) {
